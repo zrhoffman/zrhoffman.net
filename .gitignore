@@ -1,4 +1,3 @@
 /target/*
 !/target/.gitkeep
-/docker/nginx/*
-!/docker/nginx/.gitkeep
+/docker/nginx/ssl
