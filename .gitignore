@@ -1,3 +1,4 @@
-/target
-**/*.rs.bk
-/.idea
+/target/*
+!/target/.gitkeep
+/docker/nginx/*
+!/docker/nginx/.gitkeep
