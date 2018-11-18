@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 set -eu;
 
-basename="$(basename "$(pwd)")"'_';
-network_name="$basename"'default';
-pwd="$(
+cd "$(
     readlink -f "$(
         dirname "$(
             readlink -f "$0";
         )";
     )";
-)"'/..';
-cd "$pwd";
+)";
+basename="$(basename "$(pwd)")"'_';
+cd ..;
+pwd="$(pwd)";
+network_name="$basename"'default';
 
 #version: "3.7"
 #services:
