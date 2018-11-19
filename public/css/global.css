@@ -1,0 +1,141 @@
+@font-face {
+    /*
+     * Usage: non-commercial
+     * License: Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 Unported License
+     * https://web.archive.org/web/20100723225619/http://fontstruct.fontshop.com/fontstructions/show/336977
+     */
+    font-family: "TI-83 Plus";
+    src: url("/frontend/fonts/ti-83-plus.woff2") format("woff2"),
+    url("/frontend/fonts/ti-83-plus.woff") format("woff"),
+    url("/frontend/fonts/ti-83-plus.otf") format("opentype"),
+    url("/frontend/fonts/ti-83-plus.ttf") format("truetype");
+}
+
+:root {
+    font-family: Verdana, "Trebuchet MS", sans-serif;
+}
+
+header nav {
+    font-size: 1.5em;
+}
+
+.calc {
+    font-family: "TI-83 Plus", Verdana, "Trebuchet MS", sans-serif;
+    text-transform: uppercase;
+}
+
+@media (min-width: 400px) {
+    nav ul {
+        flex-direction: row;
+    }
+
+    nav ul li {
+        flex-basis: 100%;
+    }
+
+    nav ul li:first-child {
+        text-align: left;
+    }
+
+    nav ul li:last-child {
+        text-align: right;
+    }
+
+    .wrapper {
+        margin: 0 auto;
+    }
+
+    .container .item h2 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: calc(400px - 1px)) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        flex-basis: 3rem;
+    }
+
+    .wrapper {
+        margin: 0rem auto 0 auto;
+    }
+
+    .container .item h2 {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: calc(480px / .7)) {
+    .wrapper {
+        max-width: 63vw;
+        min-width: 480px;
+    }
+
+    .container .item {
+        margin: 2.8rem 0;
+    }
+}
+
+@media (max-width: calc(480px / .7 - 1px)) and (min-width: 480px) {
+    .wrapper {
+        max-width: 480px;
+    }
+
+    .container .item {
+        margin: 3rem;
+    }
+}
+
+@media (max-width: calc(480px - 1px)) {
+    .wrapper {
+        max-width: calc(480px - 2 * 3em);
+    }
+
+    .container .item {
+        margin: 3em 0;
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+}
+
+nav ul li {
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: center;
+}
+
+nav ul li a,
+nav ul li a:link,
+nav ul li a:visited,
+nav ul li a:hover
+{
+    color: black;
+    text-decoration: none;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.wrapper .item {
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.container .item {
+    text-align: justify;
+}
+
+.container .item p {
+    margin-top: 0;
+}
