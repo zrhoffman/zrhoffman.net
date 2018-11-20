@@ -63,6 +63,22 @@ network_name="$basename"'default';
         #command:
             '/entrypoint'
     );
+    run_db=(
+        docker run
+        '--name' "$basename"'db'
+        '--network='"$network_name"
+        '--network-alias=db'
+        '--detach=true'
+        #volumes:
+            '--volume=/var/lib/postgresql/data' '--volume-driver=local'
+        #expose:
+            '--expose=5432'
+        #environment:
+            '--env' 'POSTGRES_USER=docker'
+            '--env' 'POSTGRES_PASSWORD=docker'
+        #image:
+            'postgres:alpine'
+    );
 #networks:
     #default:
         network=(
@@ -81,3 +97,4 @@ fi;
 
 "${run_rocket[@]}";
 "${run_web[@]}";
+"${run_db[@]}";
