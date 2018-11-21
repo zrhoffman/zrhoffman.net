@@ -31,9 +31,6 @@ network_name="$basename"'default';
             '--log-driver=journald'
         #expose:
             '--expose=8000'
-        #environment:
-            '--env=ROCKET_ADDRESS=0.0.0.0'
-            '--env=ROCKET_TEMPLATE_DIR=/web/templates'
         #image:
             'alpine:edge'
         #command:
