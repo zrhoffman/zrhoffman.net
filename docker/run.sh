@@ -15,6 +15,24 @@ network_name="$basename"'default';
 
 #version: "3.7"
 #services:
+    run_db=(
+        docker run
+        '--name' "$basename"'db'
+        '--network='"$network_name"
+        '--network-alias=db'
+        '--detach=true'
+        #volumes:
+            '--volume=/var/lib/postgresql/data' '--volume-driver=local'
+        #expose:
+            '--expose=5432'
+        #ports:
+            '-p5432:5432'
+        #environment:
+            '--env' 'POSTGRES_USER=docker'
+            '--env' 'POSTGRES_PASSWORD=docker'
+        #image:
+            'postgres:alpine'
+    );
     run_rocket=(
         docker run
         '--interactive=true'
@@ -59,22 +77,6 @@ network_name="$basename"'default';
             'nginx:alpine'
         #command:
             '/entrypoint'
-    );
-    run_db=(
-        docker run
-        '--name' "$basename"'db'
-        '--network='"$network_name"
-        '--network-alias=db'
-        '--detach=true'
-        #volumes:
-            '--volume=/var/lib/postgresql/data' '--volume-driver=local'
-        #expose:
-            '--expose=5432'
-        #environment:
-            '--env' 'POSTGRES_USER=docker'
-            '--env' 'POSTGRES_PASSWORD=docker'
-        #image:
-            'postgres:alpine'
     );
 #networks:
     #default:
