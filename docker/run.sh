@@ -24,6 +24,7 @@ function run_if_empty()
 basename="$(basename "$(pwd)")"'_';
 cd ..;
 pwd="$(pwd)";
+volume_name="$basename"'database';
 network_name="$basename"'default';
 
 #version: "3.7"
@@ -36,7 +37,8 @@ network_name="$basename"'default';
         '--detach=true'
         '--restart=always'
         #volumes:
-            '--volume=/var/lib/postgresql/data' '--volume-driver=local'
+            '--mount'
+            'type=volume,volume-driver=local,src='"$volume_name"',dst=/var/lib/postgresql/data'
         #expose:
             '--expose=5432'
         #ports:
@@ -94,6 +96,15 @@ network_name="$basename"'default';
         #command:
             '/entrypoint'
     );
+#volumes:
+    #database:
+        volume=(
+            'docker' 'volume' 'create'
+        #driver:
+            '--driver'
+            'local'
+            "$volume_name"
+        );
 #networks:
     #default:
         network=(
@@ -104,8 +115,12 @@ network_name="$basename"'default';
         "$network_name"
         );
 
-network_exists="$(docker network ls | grep ' docker_default ' | awk '{print $1}')";
-if [[ -z "$network_exists" ]];
+if [[ -z "$(docker volume ls --format '{{.Name}}' --filter 'name='"$volume_name")" ]];
+then
+    "${volume[@]}";
+fi;
+
+if [[ -z "$(docker network ls --format '{{.Name}}' --filter 'name='"$network_name")" ]];
 then
     "${network[@]}";
 fi;
