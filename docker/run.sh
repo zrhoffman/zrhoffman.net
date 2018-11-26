@@ -21,6 +21,7 @@ network_name="$basename"'default';
         '--network='"$network_name"
         '--network-alias=db'
         '--detach=true'
+        '--restart=always'
         #volumes:
             '--volume=/var/lib/postgresql/data' '--volume-driver=local'
         #expose:
@@ -40,6 +41,7 @@ network_name="$basename"'default';
         '--network='"$network_name"
         '--network-alias=rocket'
         '--detach=true'
+        '--restart=always'
         #volumes:
             '--mount'
             'type=bind,source='"$pwd"'/target,target=/web'
@@ -61,6 +63,7 @@ network_name="$basename"'default';
         '--network='"$network_name"
         '--network-alias=web'
         '--detach=true'
+        '--restart=always'
         #volumes:
             '--mount'
             'type=bind,source='"$pwd"'/docker/nginx,target=/etc/nginx'
