@@ -8,6 +8,19 @@ cd "$(
         )";
     )";
 )";
+
+function run_if_empty()
+{
+    local container_name="$1";
+    shift;
+    local docker_run=("$@");
+
+    if [[ -z "$(docker ps --all --format '{{.Names}}' --filter 'name='"$container_name")" ]];
+    then
+        "${docker_run[@]}";
+    fi;
+}
+
 basename="$(basename "$(pwd)")"'_';
 cd ..;
 pwd="$(pwd)";
@@ -97,6 +110,6 @@ then
     "${network[@]}";
 fi;
 
-"${run_rocket[@]}";
-"${run_web[@]}";
-"${run_db[@]}";
+run_if_empty "$basename"'db' "${run_db[@]}";
+run_if_empty "$basename"'rocket' "${run_rocket[@]}";
+run_if_empty "$basename"'web' "${run_web[@]}";
