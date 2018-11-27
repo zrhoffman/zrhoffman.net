@@ -135,6 +135,24 @@ nav ul li a:hover {
     text-align: justify;
 }
 
+.container .item .heading {
+    margin-bottom: 1rem;
+}
+
+.container .item .heading-title {
+    margin-bottom: 0;
+}
+
+.container .item .heading-date {
+    font-style: italic;
+}
+
+.container .item .heading-divider {
+    border: 0;
+    height: 1px;
+    background-color: black;
+}
+
 .container .item p {
     margin-top: 0;
 }
