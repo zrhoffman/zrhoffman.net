@@ -159,11 +159,21 @@ nav ul li {
     text-align: center;
 }
 
-nav ul li a,
-nav ul li a:link,
-nav ul li a:visited,
-nav ul li a:hover {
+nav ul li:not(.calc-menu-selected) a,
+nav ul li:not(.calc-menu-selected) a:link,
+nav ul li:not(.calc-menu-selected) a:visited,
+nav ul li:not(.calc-menu-selected) a:hover {
     color: black;
+    text-decoration: none;
+}
+
+nav ul li.calc-menu-selected a,
+nav ul li.calc-menu-selected a:link,
+nav ul li.calc-menu-selected a:visited,
+nav ul li.calc-menu-selected a:hover {
+    color: #848f71;
+    padding: 3px;
+    background-color: black;
     text-decoration: none;
 }
 
