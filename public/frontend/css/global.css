@@ -16,7 +16,7 @@
 }
 
 header nav {
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
 .calc {
@@ -46,7 +46,7 @@ header nav {
     }
 
     .container .item h2 {
-        font-size: 1.3em;
+        font-size: 1.3rem;
     }
 }
 
@@ -64,7 +64,7 @@ header nav {
     }
 
     .container .item h2 {
-        font-size: 1em;
+        font-size: 1rem;
     }
 }
 
@@ -91,11 +91,11 @@ header nav {
 
 @media (max-width: calc(480px - 1px)) {
     .wrapper {
-        max-width: calc(480px - 2 * 3em);
+        max-width: calc(480px - 2 * 3rem);
     }
 
     .container .item {
-        margin: 3em 0;
+        margin: 3rem 0;
     }
 }
 
