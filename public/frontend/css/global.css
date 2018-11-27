@@ -114,8 +114,7 @@ nav ul li {
 nav ul li a,
 nav ul li a:link,
 nav ul li a:visited,
-nav ul li a:hover
-{
+nav ul li a:hover {
     color: black;
     text-decoration: none;
 }
