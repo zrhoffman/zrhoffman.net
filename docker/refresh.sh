@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 set -eu;
 
+nobuild='nobuild';
+while (( $# > 0 ));
+do
+    arg="$0";
+    shift;
+    if [[ "$arg" == '-b' || "$arg" == '--build' ]];
+    then
+        nobuild='';
+        break;
+    fi;
+done;
+
 cd "$(
     readlink -f "$(
         dirname "$(
@@ -9,7 +21,7 @@ cd "$(
     )";
 )";
 
-./build.sh;
+. ./build.sh;
 
 container="$(docker ps --all --quiet --filter 'name=docker_rocket')";
 
