@@ -4,7 +4,7 @@ set -eu;
 nobuild='nobuild';
 while (( $# > 0 ));
 do
-    arg="$0";
+    arg="$1";
     shift;
     if [[ "$arg" == '-b' || "$arg" == '--build' ]];
     then
