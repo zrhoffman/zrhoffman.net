@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <title>Zach Hoffman</title>
+</head>
+<body>
+<div class="calc-case">
+    <div class="calc-border">
+        <div class="calc-gutter">
+            <div class="calc-screen wrapper">
+                <div class="container">
+                    <header class="calc-font">
+                        <nav>
+                            <ul>
+                                {% for item in menu %}
+                                    <li
+                                            {% if item.uri == uri %}
+                                                class="calc-menu-selected"
+                                            {% endif %}
+                                    >
+                                        <a href="{{ item.uri | safe }}">{{ item.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </header>
+                    {% block content %}{% endblock content %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
