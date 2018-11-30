@@ -44,7 +44,7 @@ fn blog(connection: PostsDbConnection, menu: Menu) -> Template {
         posts: display_posts,
     };
 
-    Template::render("index", &context)
+    Template::render("blog", &context)
 }
 
 #[catch(404)]

@@ -1,0 +1,8 @@
+<article class="item">
+    <div class="heading">
+        <h2 class="heading-title">{{ post.content.title }}</h2>
+        <small class="heading-date">{{ post.created_at_formatted }}</small>
+        <hr class="heading-divider">
+    </div>
+    <p>{{ post.content.body }}</p>
+</article>

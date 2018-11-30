@@ -1,0 +1,7 @@
+{% extends "base" %}
+
+{% block content %}
+    {% for post in posts %}
+        {% include "partials/post" %}
+    {% endfor %}
+{% endblock content %}
