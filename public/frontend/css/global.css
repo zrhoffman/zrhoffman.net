@@ -24,6 +24,10 @@ header nav {
     text-transform: uppercase;
 }
 
+.calc-case-font {
+    font-family: "TI-83 Plus", Verdana, "Trebuchet MS", sans-serif;
+}
+
 body {
     margin: 0;
 }
