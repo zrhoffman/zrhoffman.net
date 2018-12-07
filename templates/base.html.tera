@@ -14,15 +14,17 @@
                     <header class="calc-font">
                         <nav>
                             <ul>
-                                {% for item in menu %}
-                                    <li
-                                            {% if item.uri == uri %}
-                                                class="calc-menu-selected"
-                                            {% endif %}
-                                    >
-                                        <a href="{{ item.uri | safe }}">{{ item.title }}</a>
-                                    </li>
-                                {% endfor %}
+                                {% if menu %}
+                                    {% for item in menu %}
+                                        <li
+                                                {% if item.uri == uri %}
+                                                    class="calc-menu-selected"
+                                                {% endif %}
+                                        >
+                                            <a href="{{ item.uri | safe }}">{{ item.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
                             </ul>
                         </nav>
                     </header>
