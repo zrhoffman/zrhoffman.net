@@ -8,6 +8,7 @@ pub struct Post {
     pub title: String,
     pub body: String,
     pub published: bool,
+    pub post_type: String,
     pub created_at: NaiveDateTime,
     pub updated_at: NaiveDateTime,
 }
