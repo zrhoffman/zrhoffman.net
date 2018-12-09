@@ -6,5 +6,6 @@ table! {
         published -> Bool,
         created_at -> Timestamp,
         updated_at -> Timestamp,
+        post_type -> Varchar,
     }
 }
