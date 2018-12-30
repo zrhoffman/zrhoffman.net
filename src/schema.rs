@@ -4,8 +4,8 @@ table! {
         title -> Varchar,
         body -> Text,
         published -> Bool,
-        created_at -> Timestamp,
-        updated_at -> Timestamp,
         post_type -> Varchar,
+        created_at -> Timestamptz,
+        updated_at -> Timestamptz,
     }
 }
