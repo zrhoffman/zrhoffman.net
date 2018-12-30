@@ -1,26 +1,28 @@
 #![feature(proc_macro_hygiene, decl_macro, never_type)]
 
 #[macro_use]
+extern crate diesel;
+extern crate openssl;
+#[macro_use]
 extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
 #[macro_use]
 extern crate serde_derive;
-#[macro_use]
-extern crate diesel;
-extern crate openssl;
 extern crate serde_json;
+
+use std::collections::HashMap;
+
+use {
+    rocket::{Data, handler::Outcome, Request, response::Redirect},
+    rocket_contrib::templates::Template,
+};
+
+use self::{models::*, structs::*};
 
 pub mod models;
 pub mod schema;
 pub mod structs;
-
-use self::{models::*, structs::*};
-use std::collections::HashMap;
-use {
-    rocket::{handler::Outcome, response::Redirect, Data, Request},
-    rocket_contrib::templates::Template,
-};
 
 fn handler<'r>(request: &'r Request, _data: Data) -> Outcome<'r> {
     Outcome::from(request, "Hello, world!")
