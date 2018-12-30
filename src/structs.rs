@@ -49,7 +49,7 @@ impl<'a, 'b, 'c> FromRequest<'a, 'b> for Menu<'c> {
 
     fn from_request(request: &'a Request<'b>) -> rocket::request::Outcome<Self, Self::Error> {
         Success(Menu {
-            uri: RefCell::new(request.uri().to_normalized().path().to_string()),
+            uri: RefCell::new(request.uri().path().to_owned()),
             items: vec![
                 MenuItem {
                     title: "Posts",
